@@ -30,6 +30,7 @@ public class HelloServiceImpl implements HelloService {
 
     }
 
+    // 需要开启 @EnableRetry
     @Override
     @Retryable(value = SystemException.class, maxAttempts = 4, backoff = @Backoff(delay = 2000, multiplier = 2))
     public String getPort2(String name) throws ConsumerException {
